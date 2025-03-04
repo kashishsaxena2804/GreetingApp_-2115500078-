@@ -52,3 +52,9 @@
 2025-03-04 17:09:39.4181 Info Validating config: TargetNames=file, console, ConfigItems=22 ConfigSection=NLog
 2025-03-04 17:09:39.4459 Info Configuration initialized.
 2025-03-04 17:09:39.8709 Info Validating config: TargetNames=file, console, ConfigItems=22 ConfigSection=NLog
+2025-03-04 21:22:10.5777 Info Registered target NLog.Targets.ConsoleTarget(Name=console)
+2025-03-04 21:22:10.6641 Info Registered target NLog.Targets.FileTarget(Name=file)
+2025-03-04 21:22:10.6877 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.4.0.3182. Product version: 5.4.0+4d45d445601312040107cbe2ac00e56c4bf4a60b. GlobalAssemblyCache: False
+2025-03-04 21:22:10.7286 Info Validating config: TargetNames=file, console, ConfigItems=22 ConfigSection=NLog
+2025-03-04 21:22:10.7723 Info Configuration initialized.
+2025-03-04 21:22:12.3167 Info Validating config: TargetNames=file, console, ConfigItems=22 ConfigSection=NLog

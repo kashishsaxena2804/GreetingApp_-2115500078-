@@ -3,9 +3,33 @@ using ModelLayer.Model;
 
 public class GreetingBL : IGreetingBL
 {
-    public string GetGreeting()
+    public ResponseModel<string> GetGreeting(string firstName = null, string lastName = null)
     {
-        return "Hello, World!";
+        string greetingMessage = "Hello";
+
+        if (!string.IsNullOrEmpty(firstName) && !string.IsNullOrEmpty(lastName))
+        {
+            greetingMessage += $" {firstName} {lastName}";
+        }
+        else if (!string.IsNullOrEmpty(firstName))
+        {
+            greetingMessage += $" {firstName}";
+        }
+        else if (!string.IsNullOrEmpty(lastName))
+        {
+            greetingMessage += $" {lastName}";
+        }
+        else
+        {
+            greetingMessage += ", World!";
+        }
+
+        return new ResponseModel<string>
+        {
+            Success = true,
+            Message = "Greeting generated successfully",
+            Data = greetingMessage
+        };
     }
 
     public ResponseModel<string> AddGreeting(string key, string value)

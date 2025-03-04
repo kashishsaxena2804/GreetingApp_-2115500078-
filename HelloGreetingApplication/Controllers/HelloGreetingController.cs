@@ -18,11 +18,11 @@ namespace HelloGreetingApplication.Controllers
         }
 
         [HttpGet("greet")]
-        public IActionResult GetGreeting()
+        public IActionResult GetGreeting([FromQuery] string? firstName, [FromQuery] string? lastName)
         {
             logger.Info("GreetingController: GET request received.");
-            var message = _greetingBL.GetGreeting();
-            return Ok(message);
+            var response = _greetingBL.GetGreeting(firstName, lastName);
+            return Ok(response);
         }
 
 
