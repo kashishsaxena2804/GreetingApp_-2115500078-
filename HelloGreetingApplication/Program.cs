@@ -1,7 +1,4 @@
 using BusinessLayer.Interface;
-using BusinessLayer.Service;
-using RepositoryLayer.Interface;
-using RepositoryLayer.Service;
 using NLog;
 using NLog.Web;
 
@@ -19,6 +16,8 @@ try
     builder.Services.AddControllers();
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
+    builder.Services.AddScoped<IGreetingBL, GreetingBL>();
+
 
     var app = builder.Build();
 
