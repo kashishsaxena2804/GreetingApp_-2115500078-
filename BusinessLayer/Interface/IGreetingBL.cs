@@ -13,7 +13,8 @@ namespace BusinessLayer.Interface
         //ResponseModel<string> UpdateGreeting(string message);
         //ResponseModel<string> PatchGreeting(string message);
         //ResponseModel<string> ResetGreeting();
-        string GetGreeting();
+        ResponseModel<string> GetGreeting(string firstName = null, string lastName = null);
+
     }
 
 
