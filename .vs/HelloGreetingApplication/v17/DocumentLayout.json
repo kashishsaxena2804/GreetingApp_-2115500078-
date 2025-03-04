@@ -1,0 +1,241 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\HP\\OneDrive\\Desktop\\HelloGreetingApplication\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7E3930A1-64E9-4BAD-84B8-9C92A059B27E}|HelloGreetingApplication\\HelloGreetingApplication.csproj|c:\\users\\hp\\onedrive\\desktop\\hellogreetingapplication\\hellogreetingapplication\\logs\\internal-nlog.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{7E3930A1-64E9-4BAD-84B8-9C92A059B27E}|HelloGreetingApplication\\HelloGreetingApplication.csproj|solutionrelative:hellogreetingapplication\\logs\\internal-nlog.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E3930A1-64E9-4BAD-84B8-9C92A059B27E}|HelloGreetingApplication\\HelloGreetingApplication.csproj|c:\\users\\hp\\onedrive\\desktop\\hellogreetingapplication\\hellogreetingapplication\\controllers\\hellogreetingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E3930A1-64E9-4BAD-84B8-9C92A059B27E}|HelloGreetingApplication\\HelloGreetingApplication.csproj|solutionrelative:hellogreetingapplication\\controllers\\hellogreetingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E3930A1-64E9-4BAD-84B8-9C92A059B27E}|HelloGreetingApplication\\HelloGreetingApplication.csproj|c:\\users\\hp\\onedrive\\desktop\\hellogreetingapplication\\hellogreetingapplication\\hellogreetingapplication.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{7E3930A1-64E9-4BAD-84B8-9C92A059B27E}|HelloGreetingApplication\\HelloGreetingApplication.csproj|solutionrelative:hellogreetingapplication\\hellogreetingapplication.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E3930A1-64E9-4BAD-84B8-9C92A059B27E}|HelloGreetingApplication\\HelloGreetingApplication.csproj|c:\\users\\hp\\onedrive\\desktop\\hellogreetingapplication\\hellogreetingapplication\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{7E3930A1-64E9-4BAD-84B8-9C92A059B27E}|HelloGreetingApplication\\HelloGreetingApplication.csproj|solutionrelative:hellogreetingapplication\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{293AC7AF-26DE-45A4-A2CE-EF1A2FF6D51A}|BusinessLayer\\BusinessLayer.csproj|c:\\users\\hp\\onedrive\\desktop\\hellogreetingapplication\\businesslayer\\service\\greetingbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{293AC7AF-26DE-45A4-A2CE-EF1A2FF6D51A}|BusinessLayer\\BusinessLayer.csproj|solutionrelative:businesslayer\\service\\greetingbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E3930A1-64E9-4BAD-84B8-9C92A059B27E}|HelloGreetingApplication\\HelloGreetingApplication.csproj|c:\\users\\hp\\onedrive\\desktop\\hellogreetingapplication\\hellogreetingapplication\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E3930A1-64E9-4BAD-84B8-9C92A059B27E}|HelloGreetingApplication\\HelloGreetingApplication.csproj|solutionrelative:hellogreetingapplication\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E3930A1-64E9-4BAD-84B8-9C92A059B27E}|HelloGreetingApplication\\HelloGreetingApplication.csproj|c:\\users\\hp\\onedrive\\desktop\\hellogreetingapplication\\hellogreetingapplication\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{7E3930A1-64E9-4BAD-84B8-9C92A059B27E}|HelloGreetingApplication\\HelloGreetingApplication.csproj|solutionrelative:hellogreetingapplication\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5BE72FE1-54DD-42C6-BF3D-0BEE1006B077}|ModelLayer\\ModelLayer.csproj|c:\\users\\hp\\onedrive\\desktop\\hellogreetingapplication\\modellayer\\model\\requestmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5BE72FE1-54DD-42C6-BF3D-0BEE1006B077}|ModelLayer\\ModelLayer.csproj|solutionrelative:modellayer\\model\\requestmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5BE72FE1-54DD-42C6-BF3D-0BEE1006B077}|ModelLayer\\ModelLayer.csproj|c:\\users\\hp\\onedrive\\desktop\\hellogreetingapplication\\modellayer\\model\\responsemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5BE72FE1-54DD-42C6-BF3D-0BEE1006B077}|ModelLayer\\ModelLayer.csproj|solutionrelative:modellayer\\model\\responsemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{293AC7AF-26DE-45A4-A2CE-EF1A2FF6D51A}|BusinessLayer\\BusinessLayer.csproj|c:\\users\\hp\\onedrive\\desktop\\hellogreetingapplication\\businesslayer\\interface\\igreetingbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{293AC7AF-26DE-45A4-A2CE-EF1A2FF6D51A}|BusinessLayer\\BusinessLayer.csproj|solutionrelative:businesslayer\\interface\\igreetingbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EF21E570-AAA7-4FB7-B6C3-66FEA5A655F7}|RepositoryLayer\\RepositoryLayer.csproj|c:\\users\\hp\\onedrive\\desktop\\hellogreetingapplication\\repositorylayer\\interface\\igreetingrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EF21E570-AAA7-4FB7-B6C3-66FEA5A655F7}|RepositoryLayer\\RepositoryLayer.csproj|solutionrelative:repositorylayer\\interface\\igreetingrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EF21E570-AAA7-4FB7-B6C3-66FEA5A655F7}|RepositoryLayer\\RepositoryLayer.csproj|c:\\users\\hp\\onedrive\\desktop\\hellogreetingapplication\\repositorylayer\\service\\greetingrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EF21E570-AAA7-4FB7-B6C3-66FEA5A655F7}|RepositoryLayer\\RepositoryLayer.csproj|solutionrelative:repositorylayer\\service\\greetingrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EF21E570-AAA7-4FB7-B6C3-66FEA5A655F7}|RepositoryLayer\\RepositoryLayer.csproj|c:\\users\\hp\\onedrive\\desktop\\hellogreetingapplication\\repositorylayer\\repositorylayer.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{EF21E570-AAA7-4FB7-B6C3-66FEA5A655F7}|RepositoryLayer\\RepositoryLayer.csproj|solutionrelative:repositorylayer\\repositorylayer.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "internal-nlog.txt",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Desktop\\HelloGreetingApplication\\HelloGreetingApplication\\Logs\\internal-nlog.txt",
+              "RelativeDocumentMoniker": "HelloGreetingApplication\\Logs\\internal-nlog.txt",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Desktop\\HelloGreetingApplication\\HelloGreetingApplication\\Logs\\internal-nlog.txt",
+              "RelativeToolTip": "HelloGreetingApplication\\Logs\\internal-nlog.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-03-04T09:06:18.602Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HelloGreetingApplication",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Desktop\\HelloGreetingApplication\\HelloGreetingApplication\\HelloGreetingApplication.csproj",
+              "RelativeDocumentMoniker": "HelloGreetingApplication\\HelloGreetingApplication.csproj",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Desktop\\HelloGreetingApplication\\HelloGreetingApplication\\HelloGreetingApplication.csproj",
+              "RelativeToolTip": "HelloGreetingApplication\\HelloGreetingApplication.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-03-04T09:05:56.198Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "GreetingBL.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Desktop\\HelloGreetingApplication\\BusinessLayer\\Service\\GreetingBL.cs",
+              "RelativeDocumentMoniker": "BusinessLayer\\Service\\GreetingBL.cs",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Desktop\\HelloGreetingApplication\\BusinessLayer\\Service\\GreetingBL.cs",
+              "RelativeToolTip": "BusinessLayer\\Service\\GreetingBL.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-04T08:55:20.965Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Desktop\\HelloGreetingApplication\\HelloGreetingApplication\\Program.cs",
+              "RelativeDocumentMoniker": "HelloGreetingApplication\\Program.cs",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Desktop\\HelloGreetingApplication\\HelloGreetingApplication\\Program.cs",
+              "RelativeToolTip": "HelloGreetingApplication\\Program.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAACwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-03T19:40:27.234Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HelloGreetingController.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Desktop\\HelloGreetingApplication\\HelloGreetingApplication\\Controllers\\HelloGreetingController.cs",
+              "RelativeDocumentMoniker": "HelloGreetingApplication\\Controllers\\HelloGreetingController.cs",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Desktop\\HelloGreetingApplication\\HelloGreetingApplication\\Controllers\\HelloGreetingController.cs",
+              "RelativeToolTip": "HelloGreetingApplication\\Controllers\\HelloGreetingController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-03T11:09:10.913Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Desktop\\HelloGreetingApplication\\HelloGreetingApplication\\appsettings.json",
+              "RelativeDocumentMoniker": "HelloGreetingApplication\\appsettings.json",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Desktop\\HelloGreetingApplication\\HelloGreetingApplication\\appsettings.json",
+              "RelativeToolTip": "HelloGreetingApplication\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-03-04T05:04:44.834Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Desktop\\HelloGreetingApplication\\HelloGreetingApplication\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "HelloGreetingApplication\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Desktop\\HelloGreetingApplication\\HelloGreetingApplication\\Properties\\launchSettings.json",
+              "RelativeToolTip": "HelloGreetingApplication\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-03-04T08:34:21.164Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "RequestModel.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Desktop\\HelloGreetingApplication\\ModelLayer\\Model\\RequestModel.cs",
+              "RelativeDocumentMoniker": "ModelLayer\\Model\\RequestModel.cs",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Desktop\\HelloGreetingApplication\\ModelLayer\\Model\\RequestModel.cs",
+              "RelativeToolTip": "ModelLayer\\Model\\RequestModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-03T11:23:24.749Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "IGreetingBL.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Desktop\\HelloGreetingApplication\\BusinessLayer\\Interface\\IGreetingBL.cs",
+              "RelativeDocumentMoniker": "BusinessLayer\\Interface\\IGreetingBL.cs",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Desktop\\HelloGreetingApplication\\BusinessLayer\\Interface\\IGreetingBL.cs",
+              "RelativeToolTip": "BusinessLayer\\Interface\\IGreetingBL.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-03T11:13:53.725Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ResponseModel.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Desktop\\HelloGreetingApplication\\ModelLayer\\Model\\ResponseModel.cs",
+              "RelativeDocumentMoniker": "ModelLayer\\Model\\ResponseModel.cs",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Desktop\\HelloGreetingApplication\\ModelLayer\\Model\\ResponseModel.cs",
+              "RelativeToolTip": "ModelLayer\\Model\\ResponseModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-03T11:21:23.859Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "IGreetingRL.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Desktop\\HelloGreetingApplication\\RepositoryLayer\\Interface\\IGreetingRL.cs",
+              "RelativeDocumentMoniker": "RepositoryLayer\\Interface\\IGreetingRL.cs",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Desktop\\HelloGreetingApplication\\RepositoryLayer\\Interface\\IGreetingRL.cs",
+              "RelativeToolTip": "RepositoryLayer\\Interface\\IGreetingRL.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-03T11:19:31.027Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "GreetingRL.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Desktop\\HelloGreetingApplication\\RepositoryLayer\\Service\\GreetingRL.cs",
+              "RelativeDocumentMoniker": "RepositoryLayer\\Service\\GreetingRL.cs",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Desktop\\HelloGreetingApplication\\RepositoryLayer\\Service\\GreetingRL.cs",
+              "RelativeToolTip": "RepositoryLayer\\Service\\GreetingRL.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-03T11:19:42.465Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "RepositoryLayer.csproj",
+              "DocumentMoniker": "C:\\Users\\HP\\OneDrive\\Desktop\\HelloGreetingApplication\\RepositoryLayer\\RepositoryLayer.csproj",
+              "RelativeDocumentMoniker": "RepositoryLayer\\RepositoryLayer.csproj",
+              "ToolTip": "C:\\Users\\HP\\OneDrive\\Desktop\\HelloGreetingApplication\\RepositoryLayer\\RepositoryLayer.csproj",
+              "RelativeToolTip": "RepositoryLayer\\RepositoryLayer.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-03-03T11:18:45.553Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
