@@ -1,43 +1,35 @@
+using Microsoft.EntityFrameworkCore;
+using RepositoryLayer.Context;
+using RepositoryLayer.Interface;
+using RepositoryLayer.Service;
 using BusinessLayer.Interface;
-using NLog;
-using NLog.Web;
+using BusinessLayer.Service;
 
-var logger = LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
-logger.Info("Application Starting...");
 
-try
+var builder = WebApplication.CreateBuilder(args);
+
+// Configure Database Connection
+builder.Services.AddDbContext<GreetingContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+);
+
+// Register Dependencies
+builder.Services.AddScoped<IGreetingRL, GreetingRL>();
+builder.Services.AddScoped<IGreetingBL, GreetingBL>();
+
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+var app = builder.Build();
+
+if (app.Environment.IsDevelopment())
 {
-    var builder = WebApplication.CreateBuilder(args);
-
-    // Add services
-    builder.Logging.ClearProviders(); // Clear default logging providers
-    builder.Host.UseNLog(); // Use NLog for logging
-
-    builder.Services.AddControllers();
-    builder.Services.AddEndpointsApiExplorer();
-    builder.Services.AddSwaggerGen();
-    builder.Services.AddScoped<IGreetingBL, GreetingBL>();
-
-
-    var app = builder.Build();
-
-    if (app.Environment.IsDevelopment())
-    {
-        app.UseSwagger();
-        app.UseSwaggerUI();
-    }
-
-    app.UseHttpsRedirection();
-    app.UseAuthorization();
-    app.MapControllers();
-    app.Run();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
-catch (Exception ex)
-{
-    logger.Error(ex, "Application failed to start.");
-    throw;
-}
-finally
-{
-    NLog.LogManager.Shutdown(); // Ensure logs are flushed before the app exits
-}
+
+app.UseHttpsRedirection();
+app.UseAuthorization();
+app.MapControllers();
+app.Run();

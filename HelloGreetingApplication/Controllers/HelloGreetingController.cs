@@ -1,5 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.AspNetCore.Mvc;
 using ModelLayer.Model;
 using NLog;
 using BusinessLayer.Interface;
@@ -7,78 +6,69 @@ using BusinessLayer.Interface;
 namespace HelloGreetingApplication.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class HelloGreetingController : ControllerBase
     {
         private readonly IGreetingBL _greetingBL;
         private static readonly Logger logger = LogManager.GetCurrentClassLogger();
+
         public HelloGreetingController(IGreetingBL greetingBL)
         {
             _greetingBL = greetingBL;
         }
 
-        [HttpGet("greet")]
-        public IActionResult GetGreeting([FromQuery] string? firstName, [FromQuery] string? lastName)
+        // ✅ GET: Retrieve Greeting by ID
+        [HttpGet("{id}")]
+        public IActionResult GetGreetingById(int id)
         {
-            logger.Info("GreetingController: GET request received.");
-            var response = _greetingBL.GetGreeting(firstName, lastName);
+            logger.Info($"Fetching greeting with ID: {id}");
+            var response = _greetingBL.GetGreetingById(id);
+
+            if (response == null)
+                return NotFound(new ResponseModel<string> { Success = false, Message = "Greeting not found" });
+
+            return Ok(new ResponseModel<string> { Success = true, Data = response.Message, Message = "Greeting retrieved successfully" });
+        }
+
+        // ✅ POST: Add Greeting to Database
+        [HttpPost("add")]
+        public IActionResult AddGreeting([FromBody] GreetingModel greeting)
+        {
+            if (greeting == null || string.IsNullOrWhiteSpace(greeting.Message))
+                return BadRequest(new ResponseModel<string> { Success = false, Message = "Invalid greeting data" });
+
+            logger.Info("Adding new greeting...");
+            var response = _greetingBL.AddGreeting(greeting);
             return Ok(response);
         }
 
-
-        [HttpGet]
-        public IActionResult Get()
+        // ✅ PUT: Update an Existing Greeting
+        [HttpPut("update")]
+        public IActionResult UpdateGreeting([FromBody] GreetingModel greeting)
         {
-            return Ok(new ResponseModel<string>
-            {
-                Success = true,
-                Message = "Greeting fetched successfully",
-                Data = "Hello, World!"
-            });
+            if (greeting == null || greeting.Id <= 0)
+                return BadRequest(new ResponseModel<string> { Success = false, Message = "Invalid greeting data" });
+
+            logger.Info($"Updating greeting ID: {greeting.Id}");
+            var response = _greetingBL.UpdateGreeting(greeting);
+
+            if (response == null)
+                return NotFound(new ResponseModel<string> { Success = false, Message = "Greeting not found" });
+
+            return Ok(response);
         }
 
-        [HttpPost]
-        public IActionResult Post([FromBody] RequestModel requestModel)
+        // ✅ DELETE: Remove Greeting by ID
+        [HttpDelete("delete/{id}")]
+        public IActionResult DeleteGreeting(int id)
         {
-            return Ok(new ResponseModel<string>
-            {
-                Success = true,
-                Message = "Greeting added successfully",
-                Data = $"Key: {requestModel.Key}, Value: {requestModel.Value}"
-            });
-        }
+            logger.Info($"Deleting greeting with ID: {id}");
+            var response = _greetingBL.DeleteGreeting(id);
 
-        [HttpPut]
-        public IActionResult Put([FromBody] RequestModel requestModel)
-        {
-            return Ok(new ResponseModel<string>
-            {
-                Success = true,
-                Message = "Greeting updated successfully",
-                Data = $"Key: {requestModel.Key}, New Value: {requestModel.Value}"
-            });
-        }
+            if (response == null)
+                return NotFound(new ResponseModel<string> { Success = false, Message = "Greeting not found" });
 
-        [HttpPatch]
-        public IActionResult Patch([FromBody] RequestModel requestModel)
-        {
-            return Ok(new ResponseModel<string>
-            {
-                Success = true,
-                Message = "Greeting modified successfully",
-                Data = $"Key: {requestModel.Key}, Updated Value: {requestModel.Value}"
-            });
-        }
-
-        [HttpDelete("{key}")]
-        public IActionResult Delete(string key)
-        {
-            return Ok(new ResponseModel<string>
-            {
-                Success = true,
-                Message = "Greeting deleted successfully",
-                Data = $"Key: {key} removed"
-            });
+            return Ok(response);
         }
     }
 }

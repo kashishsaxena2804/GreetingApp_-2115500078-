@@ -1,54 +1,37 @@
 ﻿using BusinessLayer.Interface;
 using ModelLayer.Model;
+using RepositoryLayer.Interface;
 
-public class GreetingBL : IGreetingBL
+namespace BusinessLayer.Service 
 {
-    public ResponseModel<string> GetGreeting(string firstName = null, string lastName = null)
+    public class GreetingBL : IGreetingBL
     {
-        string greetingMessage = "Hello";
+        private readonly IGreetingRL _greetingRL;
 
-        if (!string.IsNullOrEmpty(firstName) && !string.IsNullOrEmpty(lastName))
+        public GreetingBL(IGreetingRL greetingRL)
         {
-            greetingMessage += $" {firstName} {lastName}";
-        }
-        else if (!string.IsNullOrEmpty(firstName))
-        {
-            greetingMessage += $" {firstName}";
-        }
-        else if (!string.IsNullOrEmpty(lastName))
-        {
-            greetingMessage += $" {lastName}";
-        }
-        else
-        {
-            greetingMessage += ", World!";
+            _greetingRL = greetingRL;
         }
 
-        return new ResponseModel<string>
+        public ResponseModel<string> AddGreeting(GreetingModel greeting)
         {
-            Success = true,
-            Message = "Greeting generated successfully",
-            Data = greetingMessage
-        };
+            return _greetingRL.AddGreeting(greeting);
+        }
+
+        public GreetingModel GetGreetingById(int id)
+        {
+            return _greetingRL.GetGreetingById(id);
+        }
+
+        public ResponseModel<string> UpdateGreeting(GreetingModel greeting)
+        {
+            return _greetingRL.UpdateGreeting(greeting);
+        }
+
+        public ResponseModel<string> DeleteGreeting(int id)
+        {
+            return _greetingRL.DeleteGreeting(id);
+        }
     }
 
-    public ResponseModel<string> AddGreeting(string key, string value)
-    {
-        return new ResponseModel<string> { Success = true, Message = "Greeting added", Data = $"Key: {key}, Value: {value}" };
-    }
-
-    public ResponseModel<string> UpdateGreeting(string key, string value)
-    {
-        return new ResponseModel<string> { Success = true, Message = "Greeting updated", Data = $"Key: {key}, New Value: {value}" };
-    }
-
-    public ResponseModel<string> ModifyGreeting(string key, string value)
-    {
-        return new ResponseModel<string> { Success = true, Message = "Greeting modified", Data = $"Key: {key}, Updated Value: {value}" };
-    }
-
-    public ResponseModel<string> DeleteGreeting(string key)
-    {
-        return new ResponseModel<string> { Success = true, Message = "Greeting deleted", Data = $"Key: {key} removed" };
-    }
 }

@@ -14,6 +14,7 @@ C:\Users\HP\OneDrive\Desktop\HelloGreetingApplication\RepositoryLayer\obj\Debug\
 C:\Users\HP\OneDrive\Desktop\HelloGreetingApplication\RepositoryLayer\obj\Debug\net6.0\RepositoryLayer.pdb
 C:\Users\HP\OneDrive\Desktop\HelloGreetingApplication\RepositoryLayer\obj\Debug\net6.0\ref\RepositoryLayer.dll
 C:\Users\HP\OneDrive\Desktop\GreetingApplication\GreetingApp_-2115500078-\RepositoryLayer\bin\Debug\net6.0\RepositoryLayer.deps.json
+C:\Users\HP\OneDrive\Desktop\GreetingApplication\GreetingApp_-2115500078-\RepositoryLayer\bin\Debug\net6.0\RepositoryLayer.runtimeconfig.json
 C:\Users\HP\OneDrive\Desktop\GreetingApplication\GreetingApp_-2115500078-\RepositoryLayer\bin\Debug\net6.0\RepositoryLayer.dll
 C:\Users\HP\OneDrive\Desktop\GreetingApplication\GreetingApp_-2115500078-\RepositoryLayer\bin\Debug\net6.0\RepositoryLayer.pdb
 C:\Users\HP\OneDrive\Desktop\GreetingApplication\GreetingApp_-2115500078-\RepositoryLayer\bin\Debug\net6.0\ModelLayer.dll
@@ -28,4 +29,5 @@ C:\Users\HP\OneDrive\Desktop\GreetingApplication\GreetingApp_-2115500078-\Reposi
 C:\Users\HP\OneDrive\Desktop\GreetingApplication\GreetingApp_-2115500078-\RepositoryLayer\obj\Debug\net6.0\RepositoryLayer.dll
 C:\Users\HP\OneDrive\Desktop\GreetingApplication\GreetingApp_-2115500078-\RepositoryLayer\obj\Debug\net6.0\refint\RepositoryLayer.dll
 C:\Users\HP\OneDrive\Desktop\GreetingApplication\GreetingApp_-2115500078-\RepositoryLayer\obj\Debug\net6.0\RepositoryLayer.pdb
+C:\Users\HP\OneDrive\Desktop\GreetingApplication\GreetingApp_-2115500078-\RepositoryLayer\obj\Debug\net6.0\RepositoryLayer.genruntimeconfig.cache
 C:\Users\HP\OneDrive\Desktop\GreetingApplication\GreetingApp_-2115500078-\RepositoryLayer\obj\Debug\net6.0\ref\RepositoryLayer.dll

@@ -1,38 +1,64 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore;
 using ModelLayer.Model;
+using RepositoryLayer.Context;
 using RepositoryLayer.Interface;
+using System.Linq;
 
 namespace RepositoryLayer.Service
 {
     public class GreetingRL : IGreetingRL
     {
-        private string _greetingMessage = "Hello, Welcome!";
+        private readonly GreetingContext _context;
 
-        public ResponseModel<string> GetGreeting()
+        public GreetingRL(GreetingContext context)
         {
-            return new ResponseModel<string> { Data = _greetingMessage, Message = "Greeting fetched successfully!" };
+            _context = context;
         }
 
-        public ResponseModel<string> UpdateGreeting(string message)
+        public ResponseModel<string> AddGreeting(GreetingModel greeting)
         {
-            _greetingMessage = message;
-            return new ResponseModel<string> { Data = _greetingMessage, Message = "Greeting updated successfully!" };
+            try
+            {
+                _context.Greetings.Add(greeting);
+                _context.SaveChanges();
+                return new ResponseModel<string> { Success = true, Message = "Greeting saved successfully!", Data = greeting.Message };
+            }
+            catch (DbUpdateException ex)
+            {
+                Console.WriteLine($"Error: {ex.InnerException?.Message}");
+                throw;
+            }
         }
 
-        public ResponseModel<string> PatchGreeting(string message)
+
+        public GreetingModel GetGreetingById(int id)
         {
-            _greetingMessage += " " + message;
-            return new ResponseModel<string> { Data = _greetingMessage, Message = "Greeting patched successfully!" };
+            return _context.Greetings.Find(id);
         }
 
-        public ResponseModel<string> ResetGreeting()
+        public ResponseModel<string> UpdateGreeting(GreetingModel greeting)
         {
-            _greetingMessage = "Hello, Welcome!";
-            return new ResponseModel<string> { Data = _greetingMessage, Message = "Greeting reset to default!" };
+            var existingGreeting = _context.Greetings.Find(greeting.Id);
+            if (existingGreeting == null)
+                return new ResponseModel<string> { Success = false, Message = "Greeting not found!" };
+
+            existingGreeting.Message = greeting.Message;
+            _context.SaveChanges();
+
+            return new ResponseModel<string> { Success = true, Message = "Greeting updated successfully!", Data = existingGreeting.Message };
+        }
+
+        public ResponseModel<string> DeleteGreeting(int id)
+        {
+            var greeting = _context.Greetings.Find(id);
+            if (greeting == null)
+                return new ResponseModel<string> { Success = false, Message = "Greeting not found!" };
+
+            _context.Greetings.Remove(greeting);
+            _context.SaveChanges();
+
+            return new ResponseModel<string> { Success = true, Message = "Greeting deleted successfully!" };
         }
     }
+
 }
