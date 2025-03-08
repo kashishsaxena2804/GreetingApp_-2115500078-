@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using ModelLayer.Model;
+﻿using ModelLayer.Model;
 
 namespace RepositoryLayer.Interface
 {
     public interface IGreetingRL
     {
-        ResponseModel<string> GetGreeting();
-        ResponseModel<string> UpdateGreeting(string message);
-        ResponseModel<string> PatchGreeting(string message);
-        ResponseModel<string> ResetGreeting();
+        ResponseModel<string> AddGreeting(GreetingModel greeting);  // Updated return type
+        GreetingModel GetGreetingById(int id);
+        ResponseModel<string> UpdateGreeting(GreetingModel greeting);
+        ResponseModel<string> DeleteGreeting(int id);
     }
 }

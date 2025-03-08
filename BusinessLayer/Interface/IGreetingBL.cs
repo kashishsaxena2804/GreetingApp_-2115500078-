@@ -9,13 +9,12 @@ namespace BusinessLayer.Interface
 {
     public interface IGreetingBL
     {
-        //ResponseModel<string> GetGreeting();
-        //ResponseModel<string> UpdateGreeting(string message);
-        //ResponseModel<string> PatchGreeting(string message);
-        //ResponseModel<string> ResetGreeting();
-        ResponseModel<string> GetGreeting(string firstName = null, string lastName = null);
-
+        ResponseModel<string> AddGreeting(GreetingModel greeting);
+        GreetingModel GetGreetingById(int id);
+        ResponseModel<string> UpdateGreeting(GreetingModel greeting);
+        ResponseModel<string> DeleteGreeting(int id);
     }
+
 
 
 }

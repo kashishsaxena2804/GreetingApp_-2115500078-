@@ -58,3 +58,33 @@
 2025-03-04 21:22:10.7286 Info Validating config: TargetNames=file, console, ConfigItems=22 ConfigSection=NLog
 2025-03-04 21:22:10.7723 Info Configuration initialized.
 2025-03-04 21:22:12.3167 Info Validating config: TargetNames=file, console, ConfigItems=22 ConfigSection=NLog
+2025-03-04 22:41:35.7250 Info Registered target NLog.Targets.ConsoleTarget(Name=console)
+2025-03-04 22:41:35.7673 Info Registered target NLog.Targets.FileTarget(Name=file)
+2025-03-04 22:41:35.7808 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.4.0.3182. Product version: 5.4.0+4d45d445601312040107cbe2ac00e56c4bf4a60b. GlobalAssemblyCache: False
+2025-03-04 22:41:35.7993 Info Validating config: TargetNames=file, console, ConfigItems=22 ConfigSection=NLog
+2025-03-04 22:41:35.8168 Info Configuration initialized.
+2025-03-04 22:41:36.9332 Info Validating config: TargetNames=file, console, ConfigItems=22 ConfigSection=NLog
+2025-03-06 17:54:56.7255 Info Registered target NLog.Targets.ConsoleTarget(Name=console)
+2025-03-06 17:54:56.7814 Info Registered target NLog.Targets.FileTarget(Name=file)
+2025-03-06 17:54:56.8014 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.4.0.3182. Product version: 5.4.0+4d45d445601312040107cbe2ac00e56c4bf4a60b. GlobalAssemblyCache: False
+2025-03-06 17:54:56.8221 Info Validating config: TargetNames=file, console, ConfigItems=22 ConfigSection=NLog
+2025-03-06 17:54:56.8461 Info Configuration initialized.
+2025-03-06 17:54:57.2248 Info Validating config: TargetNames=file, console, ConfigItems=22 ConfigSection=NLog
+2025-03-06 17:54:57.3448 Info Shutdown() called. Logger closing...
+2025-03-06 17:54:57.3448 Info Closing old configuration.
+2025-03-06 17:54:57.3840 Info Logger has been closed down.
+2025-03-06 17:55:24.0055 Info Registered target NLog.Targets.ConsoleTarget(Name=console)
+2025-03-06 17:55:24.0406 Info Registered target NLog.Targets.FileTarget(Name=file)
+2025-03-06 17:55:24.0599 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.4.0.3182. Product version: 5.4.0+4d45d445601312040107cbe2ac00e56c4bf4a60b. GlobalAssemblyCache: False
+2025-03-06 17:55:24.0793 Info Validating config: TargetNames=file, console, ConfigItems=22 ConfigSection=NLog
+2025-03-06 17:55:24.1041 Info Configuration initialized.
+2025-03-06 17:55:24.4424 Info Validating config: TargetNames=file, console, ConfigItems=22 ConfigSection=NLog
+2025-03-06 17:55:24.4874 Info Shutdown() called. Logger closing...
+2025-03-06 17:55:24.4874 Info Closing old configuration.
+2025-03-06 17:55:24.5168 Info Logger has been closed down.
+2025-03-06 18:32:20.3934 Info Registered target NLog.Targets.ConsoleTarget(Name=console)
+2025-03-06 18:32:20.5023 Info Registered target NLog.Targets.FileTarget(Name=file)
+2025-03-06 18:32:20.5318 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.4.0.3182. Product version: 5.4.0+4d45d445601312040107cbe2ac00e56c4bf4a60b. GlobalAssemblyCache: False
+2025-03-06 18:32:20.5662 Info Validating config: TargetNames=file, console, ConfigItems=22 ConfigSection=NLog
+2025-03-06 18:32:20.6051 Info Configuration initialized.
+2025-03-06 18:32:23.3949 Info Validating config: TargetNames=file, console, ConfigItems=22 ConfigSection=NLog

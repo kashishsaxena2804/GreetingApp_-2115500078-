@@ -1,4 +1,11 @@
+
 /bin/
 /obj/
 Debug/
 .vs/
+
+BusinessLayer/obj/
+HelloGreetingApplication/obj/
+ModelLayer/obj/
+RepositoryLayer/obj/
+
