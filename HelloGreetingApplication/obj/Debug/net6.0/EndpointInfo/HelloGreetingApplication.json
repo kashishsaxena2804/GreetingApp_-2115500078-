@@ -5,7 +5,7 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/HelloGreeting/{id}": {
+    "/HelloGreeting/{id}": {
       "get": {
         "tags": [
           "HelloGreeting"
@@ -28,7 +28,7 @@
         }
       }
     },
-    "/api/HelloGreeting/add": {
+    "/HelloGreeting/add": {
       "post": {
         "tags": [
           "HelloGreeting"
@@ -59,7 +59,7 @@
         }
       }
     },
-    "/api/HelloGreeting/update": {
+    "/HelloGreeting/update": {
       "put": {
         "tags": [
           "HelloGreeting"
@@ -90,7 +90,7 @@
         }
       }
     },
-    "/api/HelloGreeting/delete/{id}": {
+    "/HelloGreeting/delete/{id}": {
       "delete": {
         "tags": [
           "HelloGreeting"
@@ -118,6 +118,8 @@
     "schemas": {
       "GreetingModel": {
         "required": [
+          "firstName",
+          "lastName",
           "message"
         ],
         "type": "object",
@@ -131,12 +133,12 @@
             "type": "string"
           },
           "firstName": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           },
           "lastName": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           }
         },
         "additionalProperties": false

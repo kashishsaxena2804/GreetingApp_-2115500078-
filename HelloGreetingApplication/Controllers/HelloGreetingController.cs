@@ -6,7 +6,7 @@ using BusinessLayer.Interface;
 namespace HelloGreetingApplication.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     public class HelloGreetingController : ControllerBase
     {
         private readonly IGreetingBL _greetingBL;
