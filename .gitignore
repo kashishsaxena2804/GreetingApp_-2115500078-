@@ -1,4 +1,7 @@
 .vs
 .obj/
 .bin/
--e "bin/\nobj/\nDebug/" 
+BusinessLayer/obj/
+HelloGreetingApplication/obj/
+ModelLayer/obj/
+RepositoryLayer/obj/
