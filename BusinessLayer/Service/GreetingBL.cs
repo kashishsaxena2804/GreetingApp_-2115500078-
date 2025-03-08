@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.Interface;
 using ModelLayer.Model;
 using RepositoryLayer.Interface;
+using RepositoryLayer.Service;
 
 namespace BusinessLayer.Service 
 {
@@ -11,6 +12,11 @@ namespace BusinessLayer.Service
         public GreetingBL(IGreetingRL greetingRL)
         {
             _greetingRL = greetingRL;
+        }
+
+        public List<GreetingModel> GetAllGreetings()
+        {
+            return _greetingRL.GetAllGreetings();
         }
 
         public ResponseModel<string> AddGreeting(GreetingModel greeting)

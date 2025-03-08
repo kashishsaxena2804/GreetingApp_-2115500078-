@@ -2,6 +2,7 @@
 using ModelLayer.Model;
 using RepositoryLayer.Context;
 using RepositoryLayer.Interface;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace RepositoryLayer.Service
@@ -29,7 +30,6 @@ namespace RepositoryLayer.Service
                 throw;
             }
         }
-
 
         public GreetingModel GetGreetingById(int id)
         {
@@ -59,6 +59,10 @@ namespace RepositoryLayer.Service
 
             return new ResponseModel<string> { Success = true, Message = "Greeting deleted successfully!" };
         }
-    }
 
+        public List<GreetingModel> GetAllGreetings()  // Added method to list all greetings
+        {
+            return _context.Greetings.ToList();
+        }
+    }
 }
