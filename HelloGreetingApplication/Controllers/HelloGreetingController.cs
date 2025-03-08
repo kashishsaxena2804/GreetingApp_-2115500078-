@@ -17,6 +17,13 @@ namespace HelloGreetingApplication.Controllers
             _greetingBL = greetingBL;
         }
 
+        [HttpGet]
+        public IActionResult GetAllGreetings()
+        {
+            var greetings = _greetingBL.GetAllGreetings();
+            return Ok(greetings);
+        }
+
         // ✅ GET: Retrieve Greeting by ID
         [HttpGet("{id}")]
         public IActionResult GetGreetingById(int id)

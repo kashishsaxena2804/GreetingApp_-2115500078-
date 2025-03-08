@@ -13,6 +13,7 @@ namespace BusinessLayer.Interface
         GreetingModel GetGreetingById(int id);
         ResponseModel<string> UpdateGreeting(GreetingModel greeting);
         ResponseModel<string> DeleteGreeting(int id);
+        List<GreetingModel> GetAllGreetings();
     }
 
 

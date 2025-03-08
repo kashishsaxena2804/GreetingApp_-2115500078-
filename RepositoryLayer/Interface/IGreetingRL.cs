@@ -8,5 +8,6 @@ namespace RepositoryLayer.Interface
         GreetingModel GetGreetingById(int id);
         ResponseModel<string> UpdateGreeting(GreetingModel greeting);
         ResponseModel<string> DeleteGreeting(int id);
+        List<GreetingModel> GetAllGreetings();  // Added method to list all greetings
     }
 }
