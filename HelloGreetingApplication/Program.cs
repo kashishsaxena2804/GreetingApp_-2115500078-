@@ -4,9 +4,15 @@ using RepositoryLayer.Interface;
 using RepositoryLayer.Service;
 using BusinessLayer.Interface;
 using BusinessLayer.Service;
+using NLog.Web;
 
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Configure NLog from appsettings.json
+builder.Logging.ClearProviders();
+builder.Logging.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Information);
+builder.Host.UseNLog();
 
 // Configure Database Connection
 builder.Services.AddDbContext<GreetingContext>(options =>

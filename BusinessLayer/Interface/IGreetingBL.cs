@@ -9,6 +9,7 @@ namespace BusinessLayer.Interface
 {
     public interface IGreetingBL
     {
+        ResponseModel<string> DeleteGreetingMessage(int id);
         ResponseModel<string> UpdateGreetingMessage(GreetingModel greeting);
         ResponseModel<string> AddGreeting(GreetingModel greeting);
         GreetingModel GetGreetingById(int id);

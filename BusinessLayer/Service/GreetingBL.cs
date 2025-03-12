@@ -20,6 +20,11 @@ namespace BusinessLayer.Service
             return _greetingRL.GetAllGreetings();
         }
 
+        public ResponseModel<string> DeleteGreetingMessage(int id)
+        {
+            return _greetingRL.DeleteGreeting(id);
+        }
+
         public ResponseModel<string> UpdateGreetingMessage(GreetingModel greeting)
         {
             return _greetingRL.UpdateGreeting(greeting);

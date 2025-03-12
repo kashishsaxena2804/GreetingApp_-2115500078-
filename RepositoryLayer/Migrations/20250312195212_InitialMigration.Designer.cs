@@ -11,8 +11,8 @@ using RepositoryLayer.Context;
 namespace RepositoryLayer.Migrations
 {
     [DbContext(typeof(GreetingContext))]
-    [Migration("20250306144453_InititalMigration")]
-    partial class InititalMigration
+    [Migration("20250312195212_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -4,7 +4,7 @@
 
 namespace RepositoryLayer.Migrations
 {
-    public partial class InititalMigration : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

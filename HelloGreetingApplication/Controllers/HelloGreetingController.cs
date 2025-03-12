@@ -33,6 +33,14 @@ namespace HelloGreetingApplication.Controllers
             return NotFound(result);
         }
 
+        [HttpDelete("DeleteMessage/{id}")]
+        public IActionResult DeleteGreetingMessage(int id)
+        {
+            var result = _greetingBL.DeleteGreetingMessage(id);
+            return result.Success ? Ok(result) : NotFound(result);
+        }
+
+
 
 
         // ✅ GET: Retrieve Greeting by ID

@@ -605,7 +605,9 @@
           "Microsoft.EntityFrameworkCore": "6.0.36",
           "Microsoft.EntityFrameworkCore.Relational": "6.0.36",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.36",
-          "ModelLayer": "1.0.0"
+          "ModelLayer": "1.0.0",
+          "NLog": "5.4.0",
+          "NLog.Web.AspNetCore": "5.4.0"
         },
         "runtime": {
           "RepositoryLayer.dll": {
