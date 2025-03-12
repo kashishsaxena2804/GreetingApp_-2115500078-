@@ -16,6 +16,20 @@ namespace RepositoryLayer.Service
             _context = context;
         }
 
+
+        public ResponseModel<string> UpdateGreetingMessage(GreetingModel greeting)
+        {
+            var existingGreeting = _context.Greetings.Find(greeting.Id);
+            if (existingGreeting == null)
+                return new ResponseModel<string> { Success = false, Message = "Greeting not found!" };
+
+            existingGreeting.Message = greeting.Message;
+            _context.SaveChanges();
+
+            return new ResponseModel<string> { Success = true, Message = "Greeting updated successfully!", Data = existingGreeting.Message };
+        }
+
+
         public ResponseModel<string> AddGreeting(GreetingModel greeting)
         {
             try
