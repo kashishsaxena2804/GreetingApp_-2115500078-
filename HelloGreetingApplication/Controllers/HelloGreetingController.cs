@@ -24,6 +24,17 @@ namespace HelloGreetingApplication.Controllers
             return Ok(greetings);
         }
 
+        [HttpPut("updateMeaasge")]
+        public IActionResult UpdateGreetingMessage([FromBody] GreetingModel greeting)
+        {
+            var result = _greetingBL.UpdateGreetingMessage(greeting);
+            if (result.Success)
+                return Ok(result);
+            return NotFound(result);
+        }
+
+
+
         // ✅ GET: Retrieve Greeting by ID
         [HttpGet("{id}")]
         public IActionResult GetGreetingById(int id)

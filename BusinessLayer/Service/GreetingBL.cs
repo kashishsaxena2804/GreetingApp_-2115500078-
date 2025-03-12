@@ -14,10 +14,17 @@ namespace BusinessLayer.Service
             _greetingRL = greetingRL;
         }
 
+
         public List<GreetingModel> GetAllGreetings()
         {
             return _greetingRL.GetAllGreetings();
         }
+
+        public ResponseModel<string> UpdateGreetingMessage(GreetingModel greeting)
+        {
+            return _greetingRL.UpdateGreeting(greeting);
+        }
+
 
         public ResponseModel<string> AddGreeting(GreetingModel greeting)
         {
@@ -33,6 +40,8 @@ namespace BusinessLayer.Service
         {
             return _greetingRL.UpdateGreeting(greeting);
         }
+
+
 
         public ResponseModel<string> DeleteGreeting(int id)
         {
