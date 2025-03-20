@@ -794,3 +794,152 @@ Error Number:-2,State:0,Class:11 HelpLink.ProdName: Microsoft SQL Server;HelpLin
 2025-03-20 13:57:11.0927 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:7286/swagger/favicon-32x32.png - - 
 2025-03-20 13:57:11.0927 | Info | Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware | Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A' 
 2025-03-20 13:57:11.0927 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:7286/swagger/favicon-32x32.png - - - 200 628 image/png 2.5865ms 
+2025-03-20 14:52:45.0756 | Info | Microsoft.Hosting.Lifetime | Now listening on: https://localhost:7286 
+2025-03-20 14:52:45.2190 | Info | Microsoft.Hosting.Lifetime | Now listening on: http://localhost:5277 
+2025-03-20 14:52:45.3741 | Info | Microsoft.Hosting.Lifetime | Application started. Press Ctrl+C to shut down. 
+2025-03-20 14:52:45.3741 | Info | Microsoft.Hosting.Lifetime | Hosting environment: Development 
+2025-03-20 14:52:45.3741 | Info | Microsoft.Hosting.Lifetime | Content root path: E:\GreetingApplication\GreetingApp_-2115500078-\HelloGreetingApplication\ 
+2025-03-20 14:52:47.6582 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:7286/swagger/index.html - - 
+2025-03-20 14:52:48.3528 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:7286/swagger/index.html - - - 200 - text/html;charset=utf-8 699.7230ms 
+2025-03-20 14:52:48.4140 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:7286/_vs/browserLink - - 
+2025-03-20 14:52:48.4140 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:7286/_framework/aspnetcore-browser-refresh.js - - 
+2025-03-20 14:52:48.4140 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:7286/swagger/index.js - - 
+2025-03-20 14:52:48.4140 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:7286/_framework/aspnetcore-browser-refresh.js - - - 200 12380 application/javascript;+charset=utf-8 10.4177ms 
+2025-03-20 14:52:48.4686 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:7286/swagger/index.js - - - 200 - application/javascript;charset=utf-8 54.5958ms 
+2025-03-20 14:52:48.5910 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:7286/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 177.0506ms 
+2025-03-20 14:52:48.8438 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:7286/swagger/v1/swagger.json - - 
+2025-03-20 14:52:48.8609 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:7286/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 17.1625ms 
+2025-03-20 15:00:38.5467 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 POST https://localhost:7286/api/User/register application/json 81 
+2025-03-20 15:00:38.5676 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'AddressBookSystem.Controllers.UserController.Register (HelloGreetingApplication)' 
+2025-03-20 15:00:38.6111 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "Register", controller = "User"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Register(ModelLayer.DTO.UserRegisterDTO) on controller AddressBookSystem.Controllers.UserController (HelloGreetingApplication). 
+2025-03-20 15:00:38.8297 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor | Executing OkObjectResult, writing value of type 'System.String'. 
+2025-03-20 15:00:38.8352 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action AddressBookSystem.Controllers.UserController.Register (HelloGreetingApplication) in 219.9347ms 
+2025-03-20 15:00:38.8352 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'AddressBookSystem.Controllers.UserController.Register (HelloGreetingApplication)' 
+2025-03-20 15:00:38.8352 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 POST https://localhost:7286/api/User/register application/json 81 - 200 - text/plain;+charset=utf-8 289.0588ms 
+2025-03-20 15:01:09.9601 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 POST https://localhost:7286/api/User/login application/json 60 
+2025-03-20 15:01:09.9769 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'AddressBookSystem.Controllers.UserController.Login (HelloGreetingApplication)' 
+2025-03-20 15:01:09.9769 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "Login", controller = "User"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(ModelLayer.DTO.UserLoginDTO) on controller AddressBookSystem.Controllers.UserController (HelloGreetingApplication). 
+2025-03-20 15:01:09.9769 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor | Executing OkObjectResult, writing value of type 'System.String'. 
+2025-03-20 15:01:09.9769 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action AddressBookSystem.Controllers.UserController.Login (HelloGreetingApplication) in 2.3925ms 
+2025-03-20 15:01:09.9769 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'AddressBookSystem.Controllers.UserController.Login (HelloGreetingApplication)' 
+2025-03-20 15:01:09.9769 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 POST https://localhost:7286/api/User/login application/json 60 - 200 - text/plain;+charset=utf-8 22.1209ms 
+2025-03-20 15:01:29.7101 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 POST https://localhost:7286/api/User/login application/json 60 
+2025-03-20 15:01:29.7101 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'AddressBookSystem.Controllers.UserController.Login (HelloGreetingApplication)' 
+2025-03-20 15:01:29.7101 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "Login", controller = "User"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(ModelLayer.DTO.UserLoginDTO) on controller AddressBookSystem.Controllers.UserController (HelloGreetingApplication). 
+2025-03-20 15:01:29.7101 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor | Executing OkObjectResult, writing value of type 'System.String'. 
+2025-03-20 15:01:29.7101 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action AddressBookSystem.Controllers.UserController.Login (HelloGreetingApplication) in 1.5196ms 
+2025-03-20 15:01:29.7101 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'AddressBookSystem.Controllers.UserController.Login (HelloGreetingApplication)' 
+2025-03-20 15:01:29.7101 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 POST https://localhost:7286/api/User/login application/json 60 - 200 - text/plain;+charset=utf-8 2.5439ms 
+2025-03-20 15:04:26.8299 | Info | Microsoft.Hosting.Lifetime | Now listening on: https://localhost:7286 
+2025-03-20 15:04:26.8983 | Info | Microsoft.Hosting.Lifetime | Now listening on: http://localhost:5277 
+2025-03-20 15:04:26.9395 | Info | Microsoft.Hosting.Lifetime | Application started. Press Ctrl+C to shut down. 
+2025-03-20 15:04:26.9395 | Info | Microsoft.Hosting.Lifetime | Hosting environment: Development 
+2025-03-20 15:04:26.9395 | Info | Microsoft.Hosting.Lifetime | Content root path: E:\GreetingApplication\GreetingApp_-2115500078-\HelloGreetingApplication\ 
+2025-03-20 15:04:28.5991 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:7286/swagger/index.html - - 
+2025-03-20 15:04:28.9865 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:7286/swagger/index.html - - - 200 - text/html;charset=utf-8 389.5032ms 
+2025-03-20 15:04:29.1148 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:7286/_vs/browserLink - - 
+2025-03-20 15:04:29.1148 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:7286/_framework/aspnetcore-browser-refresh.js - - 
+2025-03-20 15:04:29.1148 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:7286/swagger/index.js - - 
+2025-03-20 15:04:29.1148 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:7286/swagger/index.js - - - 200 - application/javascript;charset=utf-8 2.7981ms 
+2025-03-20 15:04:29.1148 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:7286/_framework/aspnetcore-browser-refresh.js - - - 200 12380 application/javascript;+charset=utf-8 6.6077ms 
+2025-03-20 15:04:29.2143 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:7286/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 99.5850ms 
+2025-03-20 15:04:29.3046 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:7286/swagger/v1/swagger.json - - 
+2025-03-20 15:04:29.3046 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:7286/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 7.6940ms 
+2025-03-20 15:04:54.2104 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 POST https://localhost:7286/api/User/register application/json 78 
+2025-03-20 15:04:54.2104 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'AddressBookSystem.Controllers.UserController.Register (HelloGreetingApplication)' 
+2025-03-20 15:04:54.2557 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "Register", controller = "User"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Register(ModelLayer.DTO.UserRegisterDTO) on controller AddressBookSystem.Controllers.UserController (HelloGreetingApplication). 
+2025-03-20 15:04:54.3102 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor | Executing OkObjectResult, writing value of type 'System.String'. 
+2025-03-20 15:04:54.3102 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action AddressBookSystem.Controllers.UserController.Register (HelloGreetingApplication) in 55.8189ms 
+2025-03-20 15:04:54.3102 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'AddressBookSystem.Controllers.UserController.Register (HelloGreetingApplication)' 
+2025-03-20 15:04:54.3102 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 POST https://localhost:7286/api/User/register application/json 78 - 200 - text/plain;+charset=utf-8 105.7625ms 
+2025-03-20 15:05:24.4363 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 POST https://localhost:7286/api/User/login application/json 57 
+2025-03-20 15:05:24.4433 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'AddressBookSystem.Controllers.UserController.Login (HelloGreetingApplication)' 
+2025-03-20 15:05:24.4433 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "Login", controller = "User"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(ModelLayer.DTO.UserLoginDTO) on controller AddressBookSystem.Controllers.UserController (HelloGreetingApplication). 
+2025-03-20 15:05:24.4433 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor | Executing OkObjectResult, writing value of type 'System.String'. 
+2025-03-20 15:05:24.4433 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action AddressBookSystem.Controllers.UserController.Login (HelloGreetingApplication) in 4.995ms 
+2025-03-20 15:05:24.4433 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'AddressBookSystem.Controllers.UserController.Login (HelloGreetingApplication)' 
+2025-03-20 15:05:24.4433 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 POST https://localhost:7286/api/User/login application/json 57 - 200 - text/plain;+charset=utf-8 17.3414ms 
+2025-03-20 15:17:36.0649 | Info | Microsoft.EntityFrameworkCore.Infrastructure | Entity Framework Core 6.0.36 initialized 'GreetingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None 
+2025-03-20 15:17:51.5184 | Info | Microsoft.EntityFrameworkCore.Infrastructure | Entity Framework Core 6.0.36 initialized 'GreetingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None 
+2025-03-20 15:17:59.5553 | Info | Microsoft.EntityFrameworkCore.Database.Command | Executed DbCommand (34ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1 
+2025-03-20 15:17:59.6724 | Info | Microsoft.EntityFrameworkCore.Database.Command | Executed DbCommand (105ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]'); 
+2025-03-20 15:17:59.6724 | Info | Microsoft.EntityFrameworkCore.Database.Command | Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1 
+2025-03-20 15:17:59.6724 | Info | Microsoft.EntityFrameworkCore.Database.Command | Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]'); 
+2025-03-20 15:17:59.8402 | Info | Microsoft.EntityFrameworkCore.Database.Command | Executed DbCommand (149ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId]; 
+2025-03-20 15:17:59.8531 | Info | Microsoft.EntityFrameworkCore.Migrations | Applying migration '20250320094736_AddUsersTable'. 
+2025-03-20 15:17:59.9415 | Info | Microsoft.EntityFrameworkCore.Database.Command | Executed DbCommand (54ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [Users] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NOT NULL,
+    [Email] nvarchar(max) NOT NULL,
+    [PasswordHash] nvarchar(max) NOT NULL,
+    [Salt] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_Users] PRIMARY KEY ([Id])
+); 
+2025-03-20 15:17:59.9666 | Info | Microsoft.EntityFrameworkCore.Database.Command | Executed DbCommand (25ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20250320094736_AddUsersTable', N'6.0.36'); 
+2025-03-20 15:19:50.1758 | Info | Microsoft.Hosting.Lifetime | Now listening on: https://localhost:7286 
+2025-03-20 15:19:50.2452 | Info | Microsoft.Hosting.Lifetime | Now listening on: http://localhost:5277 
+2025-03-20 15:19:50.3107 | Info | Microsoft.Hosting.Lifetime | Application started. Press Ctrl+C to shut down. 
+2025-03-20 15:19:50.3107 | Info | Microsoft.Hosting.Lifetime | Hosting environment: Development 
+2025-03-20 15:19:50.3107 | Info | Microsoft.Hosting.Lifetime | Content root path: E:\GreetingApplication\GreetingApp_-2115500078-\HelloGreetingApplication\ 
+2025-03-20 15:19:54.0388 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:7286/swagger/index.html - - 
+2025-03-20 15:19:54.7467 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:7286/swagger/index.html - - - 200 - text/html;charset=utf-8 709.9979ms 
+2025-03-20 15:19:54.8620 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:7286/_vs/browserLink - - 
+2025-03-20 15:19:54.8620 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:7286/swagger/index.js - - 
+2025-03-20 15:19:54.8620 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:7286/_framework/aspnetcore-browser-refresh.js - - 
+2025-03-20 15:19:54.9120 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:7286/swagger/index.js - - - 200 - application/javascript;charset=utf-8 49.8912ms 
+2025-03-20 15:19:54.9120 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:7286/_framework/aspnetcore-browser-refresh.js - - - 200 12380 application/javascript;+charset=utf-8 51.4413ms 
+2025-03-20 15:19:55.1421 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:7286/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 280.0711ms 
+2025-03-20 15:19:55.2050 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:7286/swagger/v1/swagger.json - - 
+2025-03-20 15:19:55.2155 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:7286/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 10.5895ms 
+2025-03-20 15:20:22.2452 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 POST https://localhost:7286/api/User/register application/json 75 
+2025-03-20 15:20:22.2699 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'AddressBookSystem.Controllers.UserController.Register (HelloGreetingApplication)' 
+2025-03-20 15:20:22.3155 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "Register", controller = "User"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Register(ModelLayer.DTO.UserRegisterDTO) on controller AddressBookSystem.Controllers.UserController (HelloGreetingApplication). 
+2025-03-20 15:20:24.1988 | Info | Microsoft.EntityFrameworkCore.Infrastructure | Entity Framework Core 6.0.36 initialized 'GreetingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None 
+2025-03-20 15:20:26.4091 | Info | Microsoft.EntityFrameworkCore.Database.Command | Executed DbCommand (125ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [Name], [PasswordHash], [Salt])
+VALUES (@p0, @p1, @p2, @p3);
+SELECT [Id]
+FROM [Users]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity(); 
+2025-03-20 15:20:26.4941 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor | Executing OkObjectResult, writing value of type 'System.String'. 
+2025-03-20 15:20:26.4941 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action AddressBookSystem.Controllers.UserController.Register (HelloGreetingApplication) in 4178.941ms 
+2025-03-20 15:20:26.4941 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'AddressBookSystem.Controllers.UserController.Register (HelloGreetingApplication)' 
+2025-03-20 15:20:26.5086 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 POST https://localhost:7286/api/User/register application/json 75 - 200 - text/plain;+charset=utf-8 4265.0209ms 
+2025-03-20 15:20:48.5097 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 POST https://localhost:7286/api/User/login application/json 57 
+2025-03-20 15:20:48.5097 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executing endpoint 'AddressBookSystem.Controllers.UserController.Login (HelloGreetingApplication)' 
+2025-03-20 15:20:48.5097 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Route matched with {action = "Login", controller = "User"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(ModelLayer.DTO.UserLoginDTO) on controller AddressBookSystem.Controllers.UserController (HelloGreetingApplication). 
+2025-03-20 15:20:48.8420 | Info | Microsoft.EntityFrameworkCore.Infrastructure | Entity Framework Core 6.0.36 initialized 'GreetingContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None 
+2025-03-20 15:20:49.6570 | Info | Microsoft.EntityFrameworkCore.Database.Command | Executed DbCommand (202ms) [Parameters=[@__email_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[Email], [u].[Name], [u].[PasswordHash], [u].[Salt]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0 
+2025-03-20 15:20:49.6650 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor | Executing OkObjectResult, writing value of type 'System.String'. 
+2025-03-20 15:20:49.6650 | Info | Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker | Executed action AddressBookSystem.Controllers.UserController.Login (HelloGreetingApplication) in 1152.0747ms 
+2025-03-20 15:20:49.6650 | Info | Microsoft.AspNetCore.Routing.EndpointMiddleware | Executed endpoint 'AddressBookSystem.Controllers.UserController.Login (HelloGreetingApplication)' 
+2025-03-20 15:20:49.6650 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 POST https://localhost:7286/api/User/login application/json 57 - 200 - text/plain;+charset=utf-8 1156.3841ms 
+2025-03-20 15:30:52.0083 | Info | Microsoft.Hosting.Lifetime | Now listening on: https://localhost:7286 
+2025-03-20 15:30:52.0912 | Info | Microsoft.Hosting.Lifetime | Now listening on: http://localhost:5277 
+2025-03-20 15:30:52.1755 | Info | Microsoft.Hosting.Lifetime | Application started. Press Ctrl+C to shut down. 
+2025-03-20 15:30:52.1755 | Info | Microsoft.Hosting.Lifetime | Hosting environment: Development 
+2025-03-20 15:30:52.1775 | Info | Microsoft.Hosting.Lifetime | Content root path: E:\GreetingApplication\GreetingApp_-2115500078-\HelloGreetingApplication\ 
+2025-03-20 15:30:52.9568 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:7286/swagger/index.html - - 
+2025-03-20 15:30:53.3484 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:7286/swagger/index.html - - - 200 - text/html;charset=utf-8 393.4252ms 
+2025-03-20 15:30:53.4044 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:7286/_framework/aspnetcore-browser-refresh.js - - 
+2025-03-20 15:30:53.4044 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:7286/_vs/browserLink - - 
+2025-03-20 15:30:53.4044 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:7286/swagger/index.js - - 
+2025-03-20 15:30:53.4044 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:7286/swagger/index.js - - - 200 - application/javascript;charset=utf-8 2.4072ms 
+2025-03-20 15:30:53.4111 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:7286/_framework/aspnetcore-browser-refresh.js - - - 200 12380 application/javascript;+charset=utf-8 6.7422ms 
+2025-03-20 15:30:53.4718 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:7286/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 67.0255ms 
+2025-03-20 15:30:53.5152 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request starting HTTP/2 GET https://localhost:7286/swagger/v1/swagger.json - - 
+2025-03-20 15:30:53.5250 | Info | Microsoft.AspNetCore.Hosting.Diagnostics | Request finished HTTP/2 GET https://localhost:7286/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 9.8605ms 
