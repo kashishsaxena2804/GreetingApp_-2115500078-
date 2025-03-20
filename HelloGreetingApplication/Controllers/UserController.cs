@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ModelLayer.DTO;
 using BusinessLayer.Interface;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace AddressBookSystem.Controllers
 {
@@ -43,5 +45,14 @@ namespace AddressBookSystem.Controllers
             if (!result) return BadRequest("Invalid token or expired");
             return Ok("Password reset successful!");
         }
+
+        [Authorize]
+        [HttpGet("profile")]
+        public IActionResult GetProfile()
+        {
+            var email = User.FindFirst(ClaimTypes.Email)?.Value;
+            return Ok($"Welcome, {email}!");
+        }
+
     }
 }

@@ -1,7 +1,11 @@
 ﻿using System;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using BusinessLayer.Interface;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 using ModelLayer.DTO;
 using ModelLayer.Models;
 using RepositoryLayer.Interface;
@@ -11,10 +15,12 @@ namespace BusinessLayer.Service
     public class UserBL : IUserBL
     {
         private readonly IUserRL _userRepository;
+        private readonly IConfiguration _configuration;
 
-        public UserBL(IUserRL userRepository)
+        public UserBL(IUserRL userRepository, IConfiguration configuration)
         {
             _userRepository = userRepository;
+            _configuration = configuration;
         }
 
         public string Register(UserRegisterDTO userDto)
@@ -42,15 +48,37 @@ namespace BusinessLayer.Service
 
             string hashedInputPassword = HashPassword(loginDto.Password, user.Salt);
             if (hashedInputPassword == user.PasswordHash)
-                return "Login successful!"; // Ideally, return a JWT token
+                return GenerateJwtToken(user);
 
             return "Invalid credentials!";
+        }
+
+        private string GenerateJwtToken(User user)
+        {
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:SecretKey"]));
+            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+
+            var claims = new[]
+            {
+                new Claim(ClaimTypes.Name, user.Email),
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
+            };
+
+            var token = new JwtSecurityToken(
+                _configuration["Jwt:Issuer"],
+                _configuration["Jwt:Audience"],
+                claims,
+                expires: DateTime.UtcNow.AddHours(1),
+                signingCredentials: credentials
+            );
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
         private string GenerateSalt()
         {
             byte[] saltBytes = new byte[16];
-            RandomNumberGenerator.Fill(saltBytes); // Updated for .NET 6+
+            RandomNumberGenerator.Fill(saltBytes);
             return Convert.ToBase64String(saltBytes);
         }
 
@@ -73,6 +101,5 @@ namespace BusinessLayer.Service
         {
             return _userRepository.ResetPassword(email, newPassword, resetToken);
         }
-
     }
 }
