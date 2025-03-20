@@ -8,6 +8,8 @@ using BusinessLayer.Interface;
 using BusinessLayer.Service;
 using NLog.Web;
 using System.Text;
+using BusinessLayer.Interfaces;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,9 +28,11 @@ builder.Services.AddScoped<IGreetingRL, GreetingRL>();
 builder.Services.AddScoped<IGreetingBL, GreetingBL>();
 builder.Services.AddScoped<IUserRL, UserRL>();
 builder.Services.AddScoped<IUserBL, UserBL>();
+builder.Services.AddScoped<IEmailBL, EmailBL>();
+
 
 // Configure JWT Authentication
-var key = Encoding.UTF8.GetBytes(builder.Configuration["Jwt:SecretKey"]);
+var key = Encoding.UTF8.GetBytes(builder.Configuration["Jwt:SecretKey"] ?? throw new ArgumentNullException("Jwt:SecretKey"));
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -43,6 +47,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             IssuerSigningKey = new SymmetricSecurityKey(key)
         };
     });
+
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

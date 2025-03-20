@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ModelLayer.DTO;
-using BusinessLayer.Interface;
-using Microsoft.AspNetCore.Authorization;
+using BusinessLayer.Interfaces;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AddressBookSystem.Controllers
 {
@@ -18,32 +18,32 @@ namespace AddressBookSystem.Controllers
         }
 
         [HttpPost("register")]
-        public IActionResult Register(UserRegisterDTO userDto)
+        public IActionResult Register([FromBody] UserRegisterDTO userDto)
         {
             var result = _userService.Register(userDto);
-            return Ok(result);
+            return Ok(new { message = result });
         }
 
         [HttpPost("login")]
-        public IActionResult Login(UserLoginDTO loginDto)
+        public IActionResult Login([FromBody] UserLoginDTO loginDto)
         {
             var result = _userService.Login(loginDto);
-            return Ok(result);
+            return Ok(new { token = result });
         }
 
         [HttpPost("forget-password")]
-        public IActionResult ForgetPassword(string email)
+        public IActionResult ForgetPassword([FromBody] string email)
         {
-            _userService.GenerateResetToken(email);  // ✅ Corrected variable name
-            return Ok("Reset link sent to email (token generated)");
+            _userService.ForgetPassword(email);
+            return Ok(new { message = "Reset link sent to email" });
         }
 
         [HttpPost("reset-password")]
-        public IActionResult ResetPassword(string email, string newPassword, string resetToken)
+        public IActionResult ResetPassword([FromBody] ResetPasswordDTO resetDto)
         {
-            bool result = _userService.ResetPassword(email, newPassword, resetToken);  // ✅ Corrected variable name
-            if (!result) return BadRequest("Invalid token or expired");
-            return Ok("Password reset successful!");
+            bool result = _userService.ResetPassword(resetDto.Token, resetDto.NewPassword);
+            if (!result) return BadRequest(new { message = "Invalid or expired token" });
+            return Ok(new { message = "Password reset successful!" });
         }
 
         [Authorize]
@@ -51,8 +51,7 @@ namespace AddressBookSystem.Controllers
         public IActionResult GetProfile()
         {
             var email = User.FindFirst(ClaimTypes.Email)?.Value;
-            return Ok($"Welcome, {email}!");
+            return Ok(new { message = $"Welcome, {email}!" });
         }
-
     }
 }

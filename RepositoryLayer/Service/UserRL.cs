@@ -1,7 +1,8 @@
-﻿using System;
-using System.Linq;
-using System.Security.Cryptography;
+﻿using System.Security.Cryptography;
 using System.Text;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using Microsoft.IdentityModel.Tokens;
 using ModelLayer.Models;
 using RepositoryLayer.Interface;
 using RepositoryLayer.Context;
@@ -11,6 +12,7 @@ namespace RepositoryLayer.Service
     public class UserRL : IUserRL
     {
         private readonly GreetingContext _context;
+        private readonly string secretKey = "YourSuperSecureLongSecretKey123!"; // Replace with a secure key from config
 
         public UserRL(GreetingContext context)
         {
@@ -30,35 +32,42 @@ namespace RepositoryLayer.Service
         {
             Console.WriteLine($"Fetching user by email: {email}");
             var user = _context.Users.FirstOrDefault(u => u.Email == email);
-
-            if (user == null)
-                Console.WriteLine("User NOT FOUND!");
-            else
-                Console.WriteLine($"User FOUND: {user.Email}");
-
+            Console.WriteLine(user == null ? "User NOT FOUND!" : $"User FOUND: {user.Email}");
             return user;
         }
 
-        // ✅ Generate Reset Token
+        // ✅ Generate Reset Token (Fixed - Using URL-safe Base64 OR JWT)
         public void GenerateResetToken(string email)
         {
             var user = _context.Users.FirstOrDefault(u => u.Email == email);
             if (user == null) throw new Exception("User not found");
 
-            user.ResetToken = Guid.NewGuid().ToString();
-            user.ResetTokenExpiry = DateTime.Now.AddMinutes(15);
+            // 🔹 Generate JWT-based Reset Token (Recommended)
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.ASCII.GetBytes(secretKey);
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(new[] { new Claim(ClaimTypes.Email, email) }),
+                Expires = DateTime.UtcNow.AddMinutes(15),
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+            };
+            var token = tokenHandler.WriteToken(tokenHandler.CreateToken(tokenDescriptor));
+
+            user.ResetToken = token;
+            user.ResetTokenExpiry = DateTime.UtcNow.AddMinutes(15);
 
             _context.SaveChanges();
-            Console.WriteLine($"Reset Token: {user.ResetToken}");
+            Console.WriteLine($"Reset Token Generated: {user.ResetToken}");
         }
 
-        // ✅ Reset Password
+        // ✅ Reset Password (Fixed Validation)
         public bool ResetPassword(string email, string newPassword, string resetToken)
         {
             var user = _context.Users.FirstOrDefault(u => u.Email == email);
-            if (user == null || user.ResetToken != resetToken || user.ResetTokenExpiry < DateTime.Now)
+            if (user == null || string.IsNullOrEmpty(user.ResetToken) || user.ResetToken.Trim() != resetToken.Trim() || user.ResetTokenExpiry < DateTime.UtcNow)
                 return false;
 
+            // 🔹 Generate Salt & Hash Password
             string salt = GenerateSalt();
             string hashedPassword = HashPassword(newPassword, salt);
 
@@ -75,7 +84,7 @@ namespace RepositoryLayer.Service
         private string GenerateSalt()
         {
             byte[] saltBytes = new byte[16];
-            new RNGCryptoServiceProvider().GetBytes(saltBytes);
+            RandomNumberGenerator.Fill(saltBytes);
             return Convert.ToBase64String(saltBytes);
         }
 
@@ -88,6 +97,13 @@ namespace RepositoryLayer.Service
                 byte[] hashBytes = sha256.ComputeHash(combinedBytes);
                 return Convert.ToBase64String(hashBytes);
             }
+        }
+
+        // ✅ Update User
+        public void UpdateUser(User user)
+        {
+            _context.Users.Update(user);
+            _context.SaveChanges();
         }
     }
 }

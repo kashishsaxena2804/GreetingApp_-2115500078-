@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ModelLayer.Models;
+﻿using ModelLayer.Models;
 
 namespace RepositoryLayer.Interface
 {
@@ -13,6 +8,7 @@ namespace RepositoryLayer.Interface
         User GetUserByEmail(string email);
         void GenerateResetToken(string email);
         bool ResetPassword(string email, string newPassword, string resetToken);
+        void UpdateUser(User user);
 
     }
 }

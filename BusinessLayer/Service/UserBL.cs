@@ -3,7 +3,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
-using BusinessLayer.Interface;
+using BusinessLayer.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using ModelLayer.DTO;
@@ -16,11 +16,13 @@ namespace BusinessLayer.Service
     {
         private readonly IUserRL _userRepository;
         private readonly IConfiguration _configuration;
+        private readonly IEmailBL _emailService;
 
-        public UserBL(IUserRL userRepository, IConfiguration configuration)
+        public UserBL(IUserRL userRepository, IConfiguration configuration, IEmailBL emailService)
         {
             _userRepository = userRepository;
             _configuration = configuration;
+            _emailService = emailService;
         }
 
         public string Register(UserRegisterDTO userDto)
@@ -92,14 +94,66 @@ namespace BusinessLayer.Service
             }
         }
 
-        public void GenerateResetToken(string email)
+        public bool ResetPassword(string token, string newPassword)
         {
-            _userRepository.GenerateResetToken(email);
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.ASCII.GetBytes(_configuration["Jwt:SecretKey"]);
+
+            try
+            {
+                var claims = tokenHandler.ValidateToken(token, new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    ClockSkew = TimeSpan.Zero
+                }, out SecurityToken validatedToken);
+
+                var email = claims.Identity.Name;
+                var user = _userRepository.GetUserByEmail(email);
+                if (user == null) return false;
+
+                string salt = GenerateSalt();
+                string hashedPassword = HashPassword(newPassword, salt);
+
+                user.PasswordHash = hashedPassword;
+                user.Salt = salt;
+
+                _userRepository.UpdateUser(user);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
-        public bool ResetPassword(string email, string newPassword, string resetToken)
+        public void ForgetPassword(string email)
         {
-            return _userRepository.ResetPassword(email, newPassword, resetToken);
+            if (string.IsNullOrWhiteSpace(email))
+                throw new ArgumentNullException(nameof(email), "Email cannot be null or empty.");
+
+            var user = _userRepository.GetUserByEmail(email);
+            if (user == null)
+                throw new Exception("User not found");
+
+            // Generate JWT token
+            string token = GenerateJwtToken(user);
+
+            // Email body with just the token
+            string emailBody = $"Your password reset token is: {token}";
+
+            try
+            {
+                _emailService.SendEmail(email, "Password Reset Token", emailBody);
+                Console.WriteLine($"Password reset email sent to: {email}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Failed to send email: {ex.Message}");
+            }
         }
+
     }
 }

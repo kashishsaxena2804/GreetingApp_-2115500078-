@@ -14,9 +14,10 @@ namespace ModelLayer.Models
         public string PasswordHash { get; set; }
         public string Salt { get; set; }
 
-        // Fields for Reset Password
+        // ✅ Add these properties
         public string? ResetToken { get; set; }
         public DateTime? ResetTokenExpiry { get; set; }
     }
+
 
 }

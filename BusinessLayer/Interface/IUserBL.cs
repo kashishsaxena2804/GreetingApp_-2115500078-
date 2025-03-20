@@ -1,12 +1,12 @@
 ﻿using ModelLayer.DTO;
 
-namespace BusinessLayer.Interface
+namespace BusinessLayer.Interfaces
 {
     public interface IUserBL
     {
         string Register(UserRegisterDTO userDto);
         string Login(UserLoginDTO loginDto);
-        void GenerateResetToken(string email); // ✅ Add this
-        bool ResetPassword(string email, string newPassword, string resetToken); // ✅ Add this
+        void ForgetPassword(string email);
+        bool ResetPassword(string token, string newPassword);
     }
 }
