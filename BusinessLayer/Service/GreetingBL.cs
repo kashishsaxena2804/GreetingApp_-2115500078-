@@ -1,9 +1,9 @@
 ﻿using BusinessLayer.Interface;
 using ModelLayer.Model;
 using RepositoryLayer.Interface;
-using RepositoryLayer.Service;
+using System.Collections.Generic;
 
-namespace BusinessLayer.Service 
+namespace BusinessLayer.Service
 {
     public class GreetingBL : IGreetingBL
     {
@@ -14,26 +14,14 @@ namespace BusinessLayer.Service
             _greetingRL = greetingRL;
         }
 
-
         public List<GreetingModel> GetAllGreetings()
         {
             return _greetingRL.GetAllGreetings();
         }
 
-        public ResponseModel<string> DeleteGreetingMessage(int id)
+        public ResponseModel<string> AddGreeting(GreetingModel greeting, int userId)
         {
-            return _greetingRL.DeleteGreeting(id);
-        }
-
-        public ResponseModel<string> UpdateGreetingMessage(GreetingModel greeting)
-        {
-            return _greetingRL.UpdateGreeting(greeting);
-        }
-
-
-        public ResponseModel<string> AddGreeting(GreetingModel greeting)
-        {
-            return _greetingRL.AddGreeting(greeting);
+            return _greetingRL.AddGreeting(greeting, userId);
         }
 
         public GreetingModel GetGreetingById(int id)
@@ -41,17 +29,14 @@ namespace BusinessLayer.Service
             return _greetingRL.GetGreetingById(id);
         }
 
-        public ResponseModel<string> UpdateGreeting(GreetingModel greeting)
+        public ResponseModel<string> UpdateGreetingMessage(GreetingModel greeting, int userId)
         {
-            return _greetingRL.UpdateGreeting(greeting);
+            return _greetingRL.UpdateGreetingMessage(greeting, userId);
         }
 
-
-
-        public ResponseModel<string> DeleteGreeting(int id)
+        public ResponseModel<string> DeleteGreeting(int id, int userId)
         {
-            return _greetingRL.DeleteGreeting(id);
+            return _greetingRL.DeleteGreeting(id, userId);
         }
     }
-
 }

@@ -1,14 +1,14 @@
 ﻿using ModelLayer.Model;
+using System.Collections.Generic;
 
 namespace RepositoryLayer.Interface
 {
     public interface IGreetingRL
     {
-        ResponseModel<string> DeleteGreetingMessage(int id);
-        ResponseModel<string> AddGreeting(GreetingModel greeting);  // Updated return type
+        List<GreetingModel> GetAllGreetings();
+        ResponseModel<string> AddGreeting(GreetingModel greeting, int userId);
         GreetingModel GetGreetingById(int id);
-        ResponseModel<string> UpdateGreeting(GreetingModel greeting);
-        ResponseModel<string> DeleteGreeting(int id);
-        List<GreetingModel> GetAllGreetings();  // Added method to list all greetings
+        ResponseModel<string> UpdateGreetingMessage(GreetingModel greeting, int userId);
+        ResponseModel<string> DeleteGreeting(int id, int userId);
     }
 }

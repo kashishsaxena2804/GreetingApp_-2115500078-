@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ModelLayer.Model;
 
 namespace ModelLayer.Models
 {
@@ -14,10 +12,11 @@ namespace ModelLayer.Models
         public string PasswordHash { get; set; }
         public string Salt { get; set; }
 
-        // ✅ Add these properties
+        // ✅ Reset Password Properties
         public string? ResetToken { get; set; }
         public DateTime? ResetTokenExpiry { get; set; }
+
+        // ✅ Navigation Property for Greetings
+        public virtual ICollection<GreetingModel> Greetings { get; set; } = new List<GreetingModel>();
     }
-
-
 }

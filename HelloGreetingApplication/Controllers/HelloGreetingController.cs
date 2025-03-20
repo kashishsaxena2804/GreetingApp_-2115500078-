@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using ModelLayer.Model;
 using NLog;
 using BusinessLayer.Interface;
+using System.Security.Claims;
 
 namespace HelloGreetingApplication.Controllers
 {
@@ -17,34 +19,18 @@ namespace HelloGreetingApplication.Controllers
             _greetingBL = greetingBL;
         }
 
+        // ✅ Get all greetings
         [HttpGet]
+        [Authorize]
         public IActionResult GetAllGreetings()
         {
             var greetings = _greetingBL.GetAllGreetings();
             return Ok(greetings);
         }
 
-        [HttpPut("updateMeaasge")]
-        public IActionResult UpdateGreetingMessage([FromBody] GreetingModel greeting)
-        {
-            var result = _greetingBL.UpdateGreetingMessage(greeting);
-            if (result.Success)
-                return Ok(result);
-            return NotFound(result);
-        }
-
-        [HttpDelete("DeleteMessage/{id}")]
-        public IActionResult DeleteGreetingMessage(int id)
-        {
-            var result = _greetingBL.DeleteGreetingMessage(id);
-            return result.Success ? Ok(result) : NotFound(result);
-        }
-
-
-
-
-        // ✅ GET: Retrieve Greeting by ID
+        // ✅ Get greeting by ID
         [HttpGet("{id}")]
+        [Authorize]
         public IActionResult GetGreetingById(int id)
         {
             logger.Info($"Fetching greeting with ID: {id}");
@@ -56,45 +42,63 @@ namespace HelloGreetingApplication.Controllers
             return Ok(new ResponseModel<string> { Success = true, Data = response.Message, Message = "Greeting retrieved successfully" });
         }
 
-        // ✅ POST: Add Greeting to Database
+        // ✅ Add new greeting (Requires user authentication)
         [HttpPost("add")]
+        [Authorize]
         public IActionResult AddGreeting([FromBody] GreetingModel greeting)
         {
             if (greeting == null || string.IsNullOrWhiteSpace(greeting.Message))
                 return BadRequest(new ResponseModel<string> { Success = false, Message = "Invalid greeting data" });
 
-            logger.Info("Adding new greeting...");
-            var response = _greetingBL.AddGreeting(greeting);
+            int userId = GetUserIdFromToken();
+            logger.Info($"Adding new greeting for User ID: {userId}");
+
+            var response = _greetingBL.AddGreeting(greeting, userId);
             return Ok(response);
         }
 
-        // ✅ PUT: Update an Existing Greeting
+        // ✅ Update existing greeting (Requires user authentication)
         [HttpPut("update")]
+        [Authorize]
         public IActionResult UpdateGreeting([FromBody] GreetingModel greeting)
         {
             if (greeting == null || greeting.Id <= 0)
                 return BadRequest(new ResponseModel<string> { Success = false, Message = "Invalid greeting data" });
 
-            logger.Info($"Updating greeting ID: {greeting.Id}");
-            var response = _greetingBL.UpdateGreeting(greeting);
+            int userId = GetUserIdFromToken();
+            logger.Info($"Updating greeting ID: {greeting.Id} for User ID: {userId}");
 
-            if (response == null)
-                return NotFound(new ResponseModel<string> { Success = false, Message = "Greeting not found" });
+            var response = _greetingBL.UpdateGreetingMessage(greeting, userId);
 
-            return Ok(response);
+            return response.Success ? Ok(response) : NotFound(response);
         }
 
-        // ✅ DELETE: Remove Greeting by ID
+        // ✅ Delete greeting by ID (Requires user authentication)
         [HttpDelete("delete/{id}")]
+        [Authorize]
         public IActionResult DeleteGreeting(int id)
         {
-            logger.Info($"Deleting greeting with ID: {id}");
-            var response = _greetingBL.DeleteGreeting(id);
+            int userId = GetUserIdFromToken();
+            logger.Info($"Deleting greeting ID: {id} for User ID: {userId}");
 
-            if (response == null)
-                return NotFound(new ResponseModel<string> { Success = false, Message = "Greeting not found" });
+            var response = _greetingBL.DeleteGreeting(id, userId);
 
-            return Ok(response);
+            return response.Success ? Ok(response) : NotFound(response);
+        }
+
+        // ✅ Extract User ID from JWT Token
+        private int GetUserIdFromToken()
+        {
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
+            if (identity != null)
+            {
+                var userIdClaim = identity.FindFirst(ClaimTypes.NameIdentifier);
+                if (userIdClaim != null && int.TryParse(userIdClaim.Value, out int userId))
+                {
+                    return userId;
+                }
+            }
+            return 0; // Return 0 if user ID is not found (should never happen if authentication is working)
         }
     }
 }

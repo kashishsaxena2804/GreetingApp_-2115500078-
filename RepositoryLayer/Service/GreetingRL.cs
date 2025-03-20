@@ -18,89 +18,55 @@ namespace RepositoryLayer.Service
             _context = context;
         }
 
-        public ResponseModel<string> DeleteGreetingMessage(int id)
+        public List<GreetingModel> GetAllGreetings()
+        {
+            return _context.Greetings.Include(g => g.User).ToList();
+        }
+
+        public ResponseModel<string> AddGreeting(GreetingModel greeting, int userId)
         {
             try
             {
-                var greeting = _context.Greetings.Find(id);
-                if (greeting == null)
-                {
-                    logger.Warn($"Delete failed: Greeting with ID {id} not found.");
-                    return new ResponseModel<string> { Success = false, Message = "Greeting not found!" };
-                }
-
-                _context.Greetings.Remove(greeting);
-                _context.SaveChanges();
-
-                logger.Info($"Greeting with ID {id} deleted successfully.");
-                return new ResponseModel<string> { Success = true, Message = "Greeting deleted successfully!" };
-            }
-            catch (Exception ex)
-            {
-                logger.Error($"Error deleting greeting: {ex.Message}");
-                throw;
-            }
-        }
-        public ResponseModel<string> UpdateGreetingMessage(GreetingModel greeting)
-        {
-            var existingGreeting = _context.Greetings.Find(greeting.Id);
-            if (existingGreeting == null)
-                return new ResponseModel<string> { Success = false, Message = "Greeting not found!" };
-
-            existingGreeting.Message = greeting.Message;
-            _context.SaveChanges();
-
-            return new ResponseModel<string> { Success = true, Message = "Greeting updated successfully!", Data = existingGreeting.Message };
-        }
-
-
-        public ResponseModel<string> AddGreeting(GreetingModel greeting)
-        {
-            try
-            {
+                greeting.UserId = userId; // ✅ Assign User ID
                 _context.Greetings.Add(greeting);
                 _context.SaveChanges();
-                return new ResponseModel<string> { Success = true, Message = "Greeting saved successfully!", Data = greeting.Message };
+
+                return new ResponseModel<string> { Success = true, Message = "Greeting saved successfully!" };
             }
             catch (DbUpdateException ex)
             {
-                Console.WriteLine($"Error: {ex.InnerException?.Message}");
+                logger.Error($"Error adding greeting: {ex.InnerException?.Message}");
                 throw;
             }
         }
 
         public GreetingModel GetGreetingById(int id)
         {
-            return _context.Greetings.Find(id);
+            return _context.Greetings.Include(g => g.User).FirstOrDefault(g => g.Id == id);
         }
 
-        public ResponseModel<string> UpdateGreeting(GreetingModel greeting)
+        public ResponseModel<string> UpdateGreetingMessage(GreetingModel greeting, int userId)
         {
-            var existingGreeting = _context.Greetings.Find(greeting.Id);
+            var existingGreeting = _context.Greetings.FirstOrDefault(g => g.Id == greeting.Id && g.UserId == userId);
             if (existingGreeting == null)
-                return new ResponseModel<string> { Success = false, Message = "Greeting not found!" };
+                return new ResponseModel<string> { Success = false, Message = "Greeting not found or unauthorized!" };
 
             existingGreeting.Message = greeting.Message;
             _context.SaveChanges();
 
-            return new ResponseModel<string> { Success = true, Message = "Greeting updated successfully!", Data = existingGreeting.Message };
+            return new ResponseModel<string> { Success = true, Message = "Greeting updated successfully!" };
         }
 
-        public ResponseModel<string> DeleteGreeting(int id)
+        public ResponseModel<string> DeleteGreeting(int id, int userId)
         {
-            var greeting = _context.Greetings.Find(id);
+            var greeting = _context.Greetings.FirstOrDefault(g => g.Id == id && g.UserId == userId);
             if (greeting == null)
-                return new ResponseModel<string> { Success = false, Message = "Greeting not found!" };
+                return new ResponseModel<string> { Success = false, Message = "Greeting not found or unauthorized!" };
 
             _context.Greetings.Remove(greeting);
             _context.SaveChanges();
 
             return new ResponseModel<string> { Success = true, Message = "Greeting deleted successfully!" };
-        }
-
-        public List<GreetingModel> GetAllGreetings()  // Added method to list all greetings
-        {
-            return _context.Greetings.ToList();
         }
     }
 }

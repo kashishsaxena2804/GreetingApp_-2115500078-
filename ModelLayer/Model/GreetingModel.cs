@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using ModelLayer.Models;
 
 namespace ModelLayer.Model
 {
@@ -14,10 +15,9 @@ namespace ModelLayer.Model
         public string Message { get; set; }
 
         [Required]
+        public int UserId { get; set; } // ✅ Foreign Key Relationship
 
-        public string FirstName { get; set; }
-
-        [Required]
-        public string LastName { get; set; }
+        [ForeignKey("UserId")]
+        public virtual User User { get; set; } // ✅ Navigation Property
     }
 }
