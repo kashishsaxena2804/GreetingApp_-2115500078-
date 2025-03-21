@@ -9,6 +9,9 @@ using BusinessLayer.Service;
 using NLog.Web;
 using System.Text;
 using BusinessLayer.Interfaces;
+using StackExchange.Redis;
+using RabbitMQ.Client;
+
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -47,6 +50,12 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             IssuerSigningKey = new SymmetricSecurityKey(key)
         };
     });
+// Add Redis service
+var redisConfig = builder.Configuration.GetSection("Redis");
+builder.Services.AddSingleton<IConnectionMultiplexer>(ConnectionMultiplexer.Connect($"{redisConfig["Host"]}:{redisConfig["Port"]}"));
+
+//RabbitMQ
+builder.Services.AddSingleton<IRabbitMQService, RabbitMQService>();
 
 
 builder.Services.AddControllers();

@@ -1,44 +1,56 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ModelLayer.Model;
+using Newtonsoft.Json;
 using NLog;
 using RepositoryLayer.Context;
 using RepositoryLayer.Interface;
+using StackExchange.Redis;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace RepositoryLayer.Service
 {
+
     public class GreetingRL : IGreetingRL
     {
+        private readonly IDatabase _cache;
         private readonly GreetingContext _context;
         private static readonly Logger logger = LogManager.GetCurrentClassLogger();
 
-        public GreetingRL(GreetingContext context)
+        public GreetingRL(GreetingContext context, IConnectionMultiplexer redis)
         {
             _context = context;
+            _cache = redis.GetDatabase();
         }
 
         public List<GreetingModel> GetAllGreetings()
         {
-            return _context.Greetings.Include(g => g.User).ToList();
+            string cacheKey = "greetings";
+            string cachedData = _cache.StringGet(cacheKey);
+
+            if (!string.IsNullOrEmpty(cachedData))
+            {
+                return JsonConvert.DeserializeObject<List<GreetingModel>>(cachedData);
+            }
+
+            var greetings = _context.Greetings.Include(g => g.User).ToList();
+            _cache.StringSet(cacheKey, JsonConvert.SerializeObject(greetings), TimeSpan.FromMinutes(10));
+
+            return greetings;
         }
+
 
         public ResponseModel<string> AddGreeting(GreetingModel greeting, int userId)
         {
-            try
-            {
-                greeting.UserId = userId; // ✅ Assign User ID
-                _context.Greetings.Add(greeting);
-                _context.SaveChanges();
+            greeting.UserId = userId;
+            _context.Greetings.Add(greeting);
+            _context.SaveChanges();
 
-                return new ResponseModel<string> { Success = true, Message = "Greeting saved successfully!" };
-            }
-            catch (DbUpdateException ex)
-            {
-                logger.Error($"Error adding greeting: {ex.InnerException?.Message}");
-                throw;
-            }
+            _cache.KeyDelete("greetings"); // ❌ Clear cache after adding
+
+            return new ResponseModel<string> { Success = true, Message = "Greeting saved successfully!" };
         }
+
 
         public GreetingModel GetGreetingById(int id)
         {
@@ -54,8 +66,11 @@ namespace RepositoryLayer.Service
             existingGreeting.Message = greeting.Message;
             _context.SaveChanges();
 
+            _cache.KeyDelete("greetings"); // ❌ Clear cache after update
+
             return new ResponseModel<string> { Success = true, Message = "Greeting updated successfully!" };
         }
+
 
         public ResponseModel<string> DeleteGreeting(int id, int userId)
         {
@@ -66,7 +81,10 @@ namespace RepositoryLayer.Service
             _context.Greetings.Remove(greeting);
             _context.SaveChanges();
 
+            _cache.KeyDelete("greetings"); // ❌ Clear cache after deletion
+
             return new ResponseModel<string> { Success = true, Message = "Greeting deleted successfully!" };
         }
+
     }
 }
